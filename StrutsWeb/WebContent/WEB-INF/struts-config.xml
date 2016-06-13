@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+        "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+        <form-beans>
+                <form-bean name="loginForm" type="by.epamlab.struts.form.LoginForm"/>
+                <form-bean name="registrationForm" type="by.epamlab.struts.form.RegistrationForm"/>
+                <form-bean name="logoutForm" type="by.epamlab.struts.form.LogoutForm"/>
+        </form-beans>
+        <action-mappings>
+                <action name="loginForm" path="/login" type="by.epamlab.struts.action.LoginAction" scope="request" input="/index.do">
+                        <forward name="failure" path="/index.do" redirect="false"/>
+                        <forward name="success" path="/reservation.do" redirect="true"/>
+                </action>
+
+                <action name="logoutForm" path="/logout" type="by.epamlab.struts.action.LogoutAction" scope="request" input="/WEB-INF/tiles/login.jsp">
+                        <forward name="success" path="/index.do" redirect="true"/>
+                </action>
+
+                <action name="registrationForm" path="/reg" type="by.epamlab.struts.action.RegistrationAction" scope="request" input="/WEB-INF/pages/registration/registration.jsp">
+                        <forward name="failure" path="/index.do" redirect="true"/>
+                        <forward name="success" path="/reservation.do" redirect="true"/>
+                </action>
+
+                <action path="/changeLocale" parameter="method" type="by.epamlab.struts.action.LocaleAction">
+                        <forward name="success" path="/index.do" redirect="true"/>
+                </action>
+
+                <action path="/index" type="org.apache.struts.actions.ForwardAction" parameter="/WEB-INF/pages/default/index.jsp"/>
+                <action path="/registration" type="org.apache.struts.actions.ForwardAction" parameter="/WEB-INF/pages/registration/registration.jsp"/>
+                <action path="/reservation" type="org.apache.struts.actions.ForwardAction" parameter="/WEB-INF/pages/reservation/reservation.jsp"/>
+                <action path="/customer" type="org.apache.struts.actions.ForwardAction" parameter="/WEB-INF/pages/customer/customer.jsp"/>
+                <action path="/farefamily" type="org.apache.struts.actions.ForwardAction" parameter="/WEB-INF/pages/farefamily/farefamily.jsp"/>
+
+        </action-mappings>
+        <controller nocache="true"/>
+        <message-resources parameter="by.epamlab.MyResources"/>
+
+        <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+                <set-property property="definitions-config" value="/WEB-INF/tiles/tiles-defs.xml"/>
+        </plug-in>
+</struts-config>

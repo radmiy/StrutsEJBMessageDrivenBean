@@ -1,0 +1,41 @@
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 1.3//EN"
+"http://struts.apache.org/dtds/tiles-config_1_3.dtd">
+<tiles-definitions>
+
+	<definition name="baseLayout" template="/WEB-INF/tiles/baseLayout.jsp">
+		<put name="header" value="/WEB-INF/tiles/login.jsp" />
+		<put name="title" value="/WEB-INF/tiles/title.jsp" />
+		<put name="body" value="/WEB-INF/tiles/emptyPage.jsp"/>
+		<put name="pages" value="/WEB-INF/tiles/emptyPage.jsp"/>
+		<put name="footer" value="/WEB-INF/tiles/footer.jsp" />
+	</definition>
+
+	<definition name="index" extends="baseLayout">
+		<put name="body" value="/WEB-INF/pages/default/form/indexForm.jsp"/>
+	</definition>
+
+	<definition name="registration" extends="baseLayout">
+		<put name="title" value="/WEB-INF/tiles/emptyPage.jsp"/>
+		<put name="body" value="/WEB-INF/pages/registration/form/registrationForm.jsp"/>
+	</definition>
+
+	<definition name="reservation" extends="baseLayout">
+		<put name="title" value="/WEB-INF/tiles/emptyPage.jsp"/>
+		<put name="body" value="/WEB-INF/pages/reservation/form/reservationForm.jsp"/>
+		<put name="pages" value="/WEB-INF/tiles/pages.jsp"/>
+	</definition>
+
+	<definition name="customer" extends="baseLayout">
+		<put name="title" value="/WEB-INF/tiles/emptyPage.jsp"/>
+		<put name="body" value="/WEB-INF/pages/customer/form/customerForm.jsp"/>
+		<put name="pages" value="/WEB-INF/tiles/pages.jsp"/>
+	</definition>
+
+	<definition name="farefamily" extends="baseLayout">
+		<put name="title" value="/WEB-INF/tiles/emptyPage.jsp"/>
+		<put name="body" value="/WEB-INF/pages/farefamily/form/farefamilyForm.jsp"/>
+		<put name="pages" value="/WEB-INF/tiles/pages.jsp"/>
+	</definition>
+
+</tiles-definitions>
